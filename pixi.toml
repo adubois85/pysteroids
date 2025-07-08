@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Alex DuBois <adubois@alumni.uci.edu>"]
+channels = ["conda-forge"]
+name = "pysteroids"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+uv = ">=0.7.19,<0.8"
