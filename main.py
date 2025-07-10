@@ -11,6 +11,11 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     timer = pygame.time.Clock()
     dt = 0
+    updateable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    # Note: remember to create the class variable for containers before creating any players
+    # otherwise those instances won't have that variable and won't update correctly
+    Player.containers = (updateable, drawable)
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
     playing = True
     while playing == True:
@@ -18,8 +23,11 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0, 0, 0))
-        player.update(dt)
-        player.draw(screen)
+        # player.update(dt)
+        # player.draw(screen)
+        updateable.update(dt)
+        for item in drawable:
+            item.draw(screen)
         pygame.display.flip()
         dt = timer.tick(60) / 1000
     
