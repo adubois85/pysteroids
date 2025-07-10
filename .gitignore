@@ -2,5 +2,10 @@
 # pixi environments
 .pixi
 *.egg-info
+
+# venv environment stuff
+.venv
+
+# compiled files
 *.pyc
 
