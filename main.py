@@ -3,6 +3,8 @@
 # throughout this file
 import pygame
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 from constants import *
 
 
@@ -13,10 +15,14 @@ def main():
     dt = 0
     updateable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
     # Note: remember to create the class variable for containers before creating any players
     # otherwise those instances won't have that variable and won't update correctly
     Player.containers = (updateable, drawable)
+    Asteroid.containers = (asteroids, updateable, drawable)
+    AsteroidField.containers = (updateable)
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
+    asteroid_field = AsteroidField()
     playing = True
     while playing == True:
         for event in pygame.event.get():
