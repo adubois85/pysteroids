@@ -1,0 +1,1 @@
+A simple, bare-bones implementation of the Asteroids in Pygame.
